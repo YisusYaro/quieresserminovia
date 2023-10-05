@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedir ser mi novia</title>
+    <style>
+        #mensaje {
+            display: none;
+        }
+        #no {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <h1>¿Quieres ser mi novia?</h1>
+
+    <button id="si">Sí</button>
+    <button id="no">No</button>
+
+    <div id="mensaje">
+        <p>¡Gracias por decir que sí! Eres increíble.</p>
+    </div>
+
+    <script>
+        const botonSi = document.getElementById("si");
+        const botonNo = document.getElementById("no");
+        const mensaje = document.getElementById("mensaje");
+
+        // Al hacer clic en "Sí", muestra el mensaje
+        botonSi.addEventListener("click", function() {
+            mensaje.style.display = "block";
+        });
+
+        // Al hacer clic en "No", mueve el botón a una posición aleatoria
+        botonNo.addEventListener("click", function() {
+            const maxWidth = window.innerWidth - botonNo.clientWidth;
+            const maxHeight = window.innerHeight - botonNo.clientHeight;
+
+            const randomX = Math.floor(Math.random() * maxWidth);
+            const randomY = Math.floor(Math.random() * maxHeight);
+
+            botonNo.style.left = randomX + "px";
+            botonNo.style.top = randomY + "px";
+        });
+    </script>
+</body>
+</html>
